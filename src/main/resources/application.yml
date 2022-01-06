@@ -1,18 +1,14 @@
-
-spring:
-  application:
-   name: student-app
-server:
-  port: 8080
-  servlet:
-    context-path: /student
 eureka:
   client:
-    enabled: false
-  registerWithEureka: false
-  fetchRegistry: false
-  serviceUrl:
-    defaultZone: http://localhost:8761/eureka/
-    
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://eureka-elb-114619022.us-east-2.elb.amazonaws.com/eureka/
+  instance:
+    leaseExpirationDurationInSeconds: 1
+    leaseRenewalIntervalInSeconds: 28
+    prefer-ip-address: true
+spring:
+  application:
+    name: student-app
 
-    
